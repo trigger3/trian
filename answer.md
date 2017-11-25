@@ -71,9 +71,9 @@ string (const char* s, size_t n);
 
 // raw binary data
 char bData[] = {'a', 'b', 'c', '0x00', 'd'};
-
 ```
 `
+
 假设已有存储二进制数的char型数组 bData, 那么第一个构造函数在遇到'0x00'时，认为字符串结束。正确的方法应该是使用第二个构造函数。
 ` std::string bStrData (bData, sizeof(bData))`
 这样便能保证所有的数据被存储到bStrData中。总结来说就是要通过指定长度，以避免因为字符'0x00'引起的截断现象。
