@@ -63,7 +63,7 @@ int main() {
 此处调研kafka与nsq
 kafka:
 |mq|kafka|nsq|
-|-----|:----:|:----:|
+|-----|:----:|----:|
 |组成|broker,topic,partion,producer,consumer,consumer group|nsqd,lookupd,nsqadmin,topic,producer,consumer|
 |服务发现|借助zookeeper|借助自带的lookupd，nsqd需向lookupd注册|
 |持久化|持续将日志落地，|
@@ -118,6 +118,9 @@ char bData[] = {'a', 'b', 'c', '0x00', 'd'};
 ` std::string bStrData (bData, sizeof(bData))`
 这样便能保证所有的数据被存储到bStrData中。总结来说就是要通过指定长度，以避免因为字符'0x00'引起的截断现象。
 
+23. 代码问题及g_stA初始化过程及全局类对象的构造析构函数如何被“crt”调用
+
+类A中使用了全局变量g_p，破坏了类的封装性，在类外对g_p的修改很可能会引起程序的奔溃。同时abort()的存在导致程序的异常退出，g_stA全局类在构造完成,执行相关工作后，无法执行析构函数。
 
 25. url 规范化
 
