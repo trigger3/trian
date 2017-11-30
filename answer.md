@@ -65,10 +65,14 @@ kafka:
 
 |mq|kafka|nsq|
 |-----|:----:|----:|
-|组成|broker,topic,partion,producer,consumer,consumer group|nsqd,lookupd,nsqadmin,topic,producer,consumer|
+|组成|broker,topic,partion,producer,consumer,consumer group|nsqd,lookupd,nsqadmin,topic,channel,producer,consumer|
 |服务发现|借助zookeeper|借助自带的lookupd，nsqd需向lookupd注册|
-|持久化|持续将日志落地，|
+|持久化|持续将日志落地|主要在内存中，达到高水位线则落磁盘|
+|有序|同一个partion中有序|无序|
+|数据是支持副本|支持|不支持|
 |水平扩展|支持|支持|
+|集群管理平台|无|有，nsqadmin|
+|组概念|有,consumer|有，channel|
 
 14. 汇编
 
