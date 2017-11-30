@@ -64,7 +64,7 @@ int main() {
 kafka:
 
 |mq|kafka|nsq|
-|-----|:----:|----:|
+|-----|:----:|:----:|
 |组成|broker,topic,partion,producer,consumer,consumer group|nsqd,lookupd,nsqadmin,topic,channel,producer,consumer|
 |服务发现|借助zookeeper|借助自带的lookupd，nsqd需向lookupd注册|
 |持久化|持续将日志落地|主要在内存中，达到高水位线则落磁盘|
