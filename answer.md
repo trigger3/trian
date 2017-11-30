@@ -62,6 +62,7 @@ int main() {
 
 此处调研kafka与nsq
 kafka:
+
 |mq|kafka|nsq|
 |-----|:----:|----:|
 |组成|broker,topic,partion,producer,consumer,consumer group|nsqd,lookupd,nsqadmin,topic,producer,consumer|
